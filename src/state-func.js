@@ -1,41 +1,36 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react'
 
-export default function MessageBox() {
-  let [text, setText] = useState('Hello World');
-  let [size, setSize] = useState(16);
+export default function MessageBox () {
+let [text, setText] = useState('Hello World')
+let [size, setSize] = React.useState(16)
 
-  const onClickSetText = () => {
-    let t = prompt('กำหนดข้อความ');
-    if (t) {
-      setText(t);
-    }
-  };
+const onClickSetText = () => {
+let t = prompt('กำหนดข้อความ')
+if (t) {
+setText(t)
+}
+}
 
-  const onClickZoomIn = () => {
-    setSize(size + 1);
-  };
-
-  const onClickZoomOut = () => {
-    setSize(size - 1);
-  };
-
-  const msgboxStyle = {
+const onClickZoomIn = () => {
+let newSize = size + 1
+setSize(newSize)
+}
+let msgboxSyle = {
     display: 'inline-block',
     width: 350,
-    fontSize: size,
+    fontSize: size, 
     backgroundColor: '#ccc',
     padding: 5,
-    textAlign: 'left',
-  };
+    textAlign: 'left'
+    }
+    
+    return (
+        <div style={{textAlign:'center', marginTop:20}}>
+        <div style={msgboxSyle}>{text}</div><br/><br/>
+        <button onClick={onClickSetText}>ข้อความ</button>&nbsp;
+        <button onClick={onClickZoomIn}>เพิ่มขนาด</button>&nbsp;
+        <button onClick={() => setSize(size - 1)}>ลดขนาด</button>
+        </div>
+        )
 
-  return (
-    <div style={{ textAlign: 'center', marginTop: 20 }}>
-      <div style={msgboxStyle}>{text}</div>
-      <br />
-      <br />
-      <button onClick={onClickSetText}>ข้อความ</button>&nbsp;
-      <button onClick={onClickZoomIn}>เพิ่มขนาด</button>&nbsp;
-      <button onClick={onClickZoomOut}>ลดขนาด</button>
-    </div>
-  );
 }
