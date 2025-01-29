@@ -1,12 +1,15 @@
-import React from 'react';
-import { userContext } from './context'
-import Content from './context-content'
+import React, { useState } from 'react'; 
+import { userContext } from './context'; 
+import Header2 from './context-header2'; 
+import Content2 from './context-content2'; 
 
+export default function App() {
+  const [user, setUser] = useState(''); 
 
-export default function App(){
-  return(
-    <userContext.Provider value={'Panomkorn Tukkahit'}>
-      <Content/>
+  return (
+    <userContext.Provider value={[user, setUser]}> 
+      <Header2 /> 
+      <Content2 />
     </userContext.Provider>
-  )
+  );
 }
